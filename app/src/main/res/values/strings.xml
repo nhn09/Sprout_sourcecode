@@ -1,3 +1,37 @@
 <resources>
-    <string name="app_name">Da tool</string>
+    <string name="app_name">Sprout</string>
+    <string name="sign_up_in_one_easy_step">Sign up in one easy step!</string>
+    <string name="email">Email</string>
+    <string name="create_password">Create password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign In</string>
+    <string name="desc">This is a data collection application. The information collected from the user through a standard
+        questionnaire and user app usage, screen time etc. will be used as machine learning training data set to detect depression.</string>
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!--    Questions stored here-->
+
+    <string name="q_1"> Little interest or pleasure in doing things</string>
+    <string name="q_2"> Feeling down, depressed, or hopeless</string>
+    <string name="q_3"> Trouble falling or staying asleep, or sleeping too much</string>
+    <string name="q_4"> Feeling tired or having little energy</string>
+    <string name="q_5"> Poor appetite or overeating</string>
+    <string name="q_6"> Feeling bad about yourself - or that you are a failure or have let yourself or your family down</string>
+    <string name="q_7"> Moving or speaking so slowly or too fast that other people could have noticed</string>
+    <string name="q_8"> Thoughts that you would be better off dead, or of hurting yourself</string>
+    <string name="q_9"> If you checked off any problems, how difficult have these problems made it for you at work, home, or with other people?</string>
+    <string name="q_10"> Trouble concentrating on things, such as reading the newspaper or watching television</string>
+    <string name="q_11">Your future plan,if you out of words, just put an emoji :)</string>
+
+    <!--    aNSWERS-->
+
+    <string name="level1">Not at all</string>
+    <string name="level2">Several days </string>
+    <string name="level3">More than half of the days</string>
+    <string name="level4">Nearly Everyday</string>
+
+
 </resources>
