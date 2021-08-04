@@ -6,26 +6,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class csv_download extends AppCompatActivity {
 
     private String UserId;
-    private String content;
+    private ArrayList<String> content = new ArrayList<String>();
+    private static final String TAG = "csv_download";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,26 +68,48 @@ public class csv_download extends AppCompatActivity {
 
 
     }
-    public void createContent(String collection, String document){
-
-        DocumentReference mUserDoc = FirebaseFirestore.getInstance().collection(collection).document(document);
-        mUserDoc.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+    public void createContent(String collection){
+        ArrayList<String> alldata= new ArrayList<String>();
+        FirebaseFirestore.getInstance().collection(collection).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if(documentSnapshot.exists())
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+            //if successful
+                //make a list of document snapsots
+                List<DocumentSnapshot> snapshotsList;
+
+                //extract documents from queryDocumentSnapshots
+                snapshotsList=queryDocumentSnapshots.getDocuments();
+                //iterate through the list of docs
+
+                for(DocumentSnapshot each : snapshotsList)
                 {
-                    content = documentSnapshot.getString("Q_3")+","+documentSnapshot.getString("Q_4");
+                    Map<String, Object> data = each.getData();
+                    for (Map.Entry<String,Object> entry : data.entrySet()){
+                        if(entry.getValue()!=null){
+                            Log.d(TAG,entry.getValue().toString());
+                        }
+                    }
+                    //String dataLine =
+                    alldata.add(each.get("Q_3").toString()+","+each.get("Q_3").toString());
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //if failed
+                Toast.makeText(csv_download.this,"Permission not Granted"+e,Toast.LENGTH_SHORT).show();
             }
         });
 
+ content = alldata;
+ // TODO: 8/4/2021 add data to file creator and write file with newline.
 
     }
 
     public void download(View view){
         EditText filename = findViewById(R.id.filename);
         String fileName = filename.getText().toString();
-        createContent("Users",UserId);
+        createContent("Users");
 
         //String contentpre = "1,2,2,4/n3,4,5,6";
 
