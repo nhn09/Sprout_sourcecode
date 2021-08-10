@@ -25,6 +25,7 @@ public class q_3 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private String UserId;
+    private final String qstnID="q_3";
 
 
     @Override
@@ -41,6 +42,7 @@ public class q_3 extends AppCompatActivity {
 
 
 
+
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
 
@@ -50,7 +52,7 @@ public class q_3 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.notatall) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_3",check_ans);
+                    dataToSave.put(qstnID,check_ans);
                 }
                 break;
 
@@ -60,7 +62,7 @@ public class q_3 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.several) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_3",check_ans);
+                    dataToSave.put(qstnID,check_ans);
                 }
                 break;
             case R.id.morethanhalf:
@@ -68,7 +70,7 @@ public class q_3 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.morethanhalf) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_3",check_ans);
+                    dataToSave.put(qstnID,check_ans);
                 }
                 break;
 
@@ -77,7 +79,7 @@ public class q_3 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.everyday) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_3",check_ans);
+                    dataToSave.put(qstnID,check_ans);
                 }
                 break;
 
@@ -88,6 +90,7 @@ public class q_3 extends AppCompatActivity {
                 UserId);
 
     }
+
      //function to add field to firestore database
 
     public void addField( Map map, String collection, String document){

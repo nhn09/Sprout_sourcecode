@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -26,33 +27,43 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class csv_download extends AppCompatActivity {
 
+
+    //variables
     private String UserId;
-    private ArrayList<String> content = new ArrayList<String>();
+    private String content;
     private static final String TAG = "csv_download";
+    Map <String,Object> research_data= new HashMap<>();
+    public String description;
+    public StringBuilder eachDataCombine = new StringBuilder();
+    public int qstn_no=10,researchers_id;
+    ArrayList<String> headerFields = new ArrayList<>();
+    public StringBuilder csvHeader = new StringBuilder();
+    ArrayList<String> alldata= new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_csv_download);
+        //get intents from previous page
         Intent intent;
         intent = getIntent();
         UserId = intent.getStringExtra("UserId");
     }
 
+    //for download
     private void saveText (String fileName,String content){
 
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),fileName);
-
-
         try {
            FileOutputStream fos = new FileOutputStream(file);
-
-
             fos.write(content.getBytes());
             fos.close();
             Toast.makeText(this,"Saved",Toast.LENGTH_SHORT).show();
@@ -65,15 +76,68 @@ public class csv_download extends AppCompatActivity {
              Toast.makeText(this,"Error saving the file.",Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    //retrieving questions
+
+    public void questionCollector() {
+        DocumentReference q_doc = FirebaseFirestore.getInstance().collection("allResearchIDs").document("12345");
+        // store all basic info of a research
+        q_doc.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    Log.d(TAG, "DocumentSnapshot data: " + documentSnapshot.getData());
+                    //take all values as a hashmap from entire doc
+                    research_data = documentSnapshot.getData();
+                    description = documentSnapshot.getString("description").toString();
+                    researchers_id = documentSnapshot.getLong("researchers_id").intValue();
+                    qstn_no = documentSnapshot.getLong("qstn_no").intValue();
+                } else {
+                    Toast.makeText(csv_download.this, "No such Document", Toast.LENGTH_SHORT);
+
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "get failed with " + e);
+            }
+        });
+        //---------------------------------------------------//
+    }
+
+    //make the array of qstn names
+    public void qstnFieldArrayMaker(){
+
+        for (int i = 1; i <= qstn_no; i++){
+            String eachHead = "q_"+i;
+            headerFields.add(eachHead);
+        }
+    }
+
+    //make the header of csv
+    private void headerMaker(){
+        Iterator<String> it = headerFields.iterator();
+            while (it.hasNext()) {
+               csvHeader.append(it.next()+",");
+            }
+            csvHeader.append("\n");
 
 
     }
+
+
+    //create the string for csv body
     public void createContent(String collection){
-        ArrayList<String> alldata= new ArrayList<String>();
+
+        //make a string of questions as csv header
+
+
         FirebaseFirestore.getInstance().collection(collection).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-            //if successful
+                //if successful
                 //make a list of document snapsots
                 List<DocumentSnapshot> snapshotsList;
 
@@ -81,18 +145,37 @@ public class csv_download extends AppCompatActivity {
                 snapshotsList=queryDocumentSnapshots.getDocuments();
                 //iterate through the list of docs
 
+                //questionCollector();
+                qstnFieldArrayMaker();
+                headerMaker();
+
                 for(DocumentSnapshot each : snapshotsList)
                 {
-                    Map<String, Object> data = each.getData();
-                    for (Map.Entry<String,Object> entry : data.entrySet()){
-                        if(entry.getValue()!=null){
-                            Log.d(TAG,entry.getValue().toString());
+                    //inside a single user
+                    //if any field is not present in any user but present in question set, fill will NaN
+
+                    Iterator<String> it = headerFields.iterator();
+
+                        while (it.hasNext()) {
+                            //TODO:field present ache kina check kora hoy nai
+                            if (each.get(it.next()) != null) {
+                                eachDataCombine.append(each.get(it.next()).toString() + ",");
+                            } else {
+                                eachDataCombine.append("NaN" + ",");
+                            }
                         }
+
+                    //last element
+                    //add new line character
+                    eachDataCombine.append("\n");
+                    //adding each info of one user as comma separated string to the Array list of strings
+                    alldata.add(eachDataCombine.toString());
                     }
-                    //String dataLine =
-                    alldata.add(each.get("Q_3").toString()+","+each.get("Q_3").toString());
+
+
+
                 }
-            }
+
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
@@ -101,17 +184,26 @@ public class csv_download extends AppCompatActivity {
             }
         });
 
- content = alldata;
- // TODO: 8/4/2021 add data to file creator and write file with newline.
+
+
+
+
 
     }
 
+
+
+
     public void download(View view){
+
+        createContent("Users");
+        content = csvHeader.toString()+"\n"+ TextUtils.join(", ", alldata);
         EditText filename = findViewById(R.id.filename);
         String fileName = filename.getText().toString();
-        createContent("Users");
+        //createContent("Users");
+        Toast.makeText(this,"the content "+content,Toast.LENGTH_SHORT);
 
-        //String contentpre = "1,2,2,4/n3,4,5,6";
+
 
         if( (fileName)!=null){
 

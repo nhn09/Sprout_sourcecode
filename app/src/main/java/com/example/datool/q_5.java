@@ -23,7 +23,7 @@ import java.util.Map;
 public class q_5 extends AppCompatActivity {
 
     private String UserId;
-
+    private final String qstnID="q_5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class q_5 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.notatall) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_5",check_ans);
+                    dataToSave.put(qstnID,check_ans);
                 }
                 break;
 
@@ -58,7 +58,7 @@ public class q_5 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.several) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_5",check_ans);
+                    dataToSave.put(qstnID,check_ans);
                 }
                 break;
             case R.id.morethanhalf:
@@ -66,7 +66,7 @@ public class q_5 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.morethanhalf) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_5",check_ans);
+                    dataToSave.put(qstnID,check_ans);
                 }
                 break;
 
@@ -75,7 +75,7 @@ public class q_5 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.everyday) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_5",check_ans);
+                    dataToSave.put(qstnID,check_ans);
                 }
                 break;
 
