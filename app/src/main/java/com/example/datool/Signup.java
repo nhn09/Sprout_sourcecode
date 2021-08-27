@@ -13,12 +13,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.util.Patterns.EMAIL_ADDRESS;
 
@@ -27,6 +33,7 @@ public class Signup extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore fStore;
     String userID;
+    private String[] qstnPlaces = {"q_1", "q_2","q_3","q_4","q_5","q_6","q_7","q_8","q_9","q_10"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,49 @@ public class Signup extends AppCompatActivity {
 
         TextView signInTextView= findViewById(R.id.GoToSignIn);
         Button signUpPage = findViewById(R.id.signup);
+    }
+
+    // to save each data
+    Map<String, Object> dataToSave = new HashMap<String,Object>();
+    //function to add fields
+    public void addField(Map map, String collection, String document){
+
+        if(document!=null){
+            DocumentReference mUserDoc = FirebaseFirestore.getInstance().collection(collection).document(document);
+
+            mUserDoc.set(map, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(getApplicationContext(),
+                            "done",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(), "not done :( ", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(), "not done because document is null :( "+document, Toast.LENGTH_SHORT).show();
+        }
+
+
+
+    }
+
+    //create all the answers with space holders
+
+    public void placeholder(String  userID) {
+        for (String i : qstnPlaces) {
+            dataToSave.put(i,"Not answered yet");
+        }
+        addField(dataToSave,
+                "Users",
+                userID);
+
     }
 
 
@@ -110,6 +160,7 @@ public class Signup extends AppCompatActivity {
                     Toast.makeText(Signup.this, "Sign Up successful.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent (Signup.this,MainActivity.class);
                     intent.putExtra("UserId",userID);
+                    placeholder(userID);
                     startActivity(intent);
                 }
 

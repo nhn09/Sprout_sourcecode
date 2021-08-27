@@ -1,5 +1,6 @@
 package com.example.datool;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,9 +11,11 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +48,7 @@ public class q_6 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.notatall) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_6",check_ans);
+                    dataToSave.put("q_6",check_ans);
                 }
                 break;
 
@@ -55,7 +58,7 @@ public class q_6 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.several) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_6",check_ans);
+                    dataToSave.put("q_6",check_ans);
                 }
                 break;
             case R.id.morethanhalf:
@@ -63,7 +66,7 @@ public class q_6 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.morethanhalf) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_6",check_ans);
+                    dataToSave.put("q_6",check_ans);
                 }
                 break;
 
@@ -72,19 +75,41 @@ public class q_6 extends AppCompatActivity {
                 {
                     Button Chosen = findViewById(R.id.everyday) ;
                     String check_ans = Chosen.getText().toString();
-                    dataToSave.put("Q_6",check_ans);
+                    dataToSave.put("q_6",check_ans);
                 }
                 break;
 
         }
 
-        DocumentReference mUserDoc = FirebaseFirestore.getInstance().collection("Users").document(UserId).collection("Answers").document("6");
-        mUserDoc.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                //Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
-            }
-        });
+        addField(dataToSave,"Users",UserId);
+
+    }
+
+    public void addField( Map map, String collection, String document){
+
+        if(document!=null){
+            DocumentReference mUserDoc = FirebaseFirestore.getInstance().collection(collection).document(document);
+
+            mUserDoc.set(map, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(getApplicationContext(),
+                            "done",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(), "not done :( ", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(), "not done because document is null :( "+document, Toast.LENGTH_SHORT).show();
+        }
+
+
 
     }
 

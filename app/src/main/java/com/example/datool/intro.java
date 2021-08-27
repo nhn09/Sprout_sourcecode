@@ -17,5 +17,9 @@ public class intro extends AppCompatActivity {
     public void onClickCont(View view){
         Intent intent = new Intent( intro.this, describe.class);
         startActivity(intent);
+
     }
+
+
+
 }

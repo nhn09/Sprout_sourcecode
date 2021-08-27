@@ -10,14 +10,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Login extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +41,8 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(Login.this,Signup.class);
         startActivity(intent);
     }
+
+
 
 
 
@@ -93,12 +104,15 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Login successful.", Toast.LENGTH_SHORT).show();
                     String userID = String.valueOf(mAuth.getCurrentUser().getUid());
 
+
                     Intent intent = new Intent(Login.this,q_3.class);
                     intent.putExtra("UserId",userID);
                     startActivity(intent);
                 }
             }
         });
+
+
 
 
 
