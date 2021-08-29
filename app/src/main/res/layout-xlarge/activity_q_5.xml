@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:orientation="vertical"
+    tools:context=".q_5">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="348dp"
+
+
+        android:layout_height="560dp"
+        android:background="@drawable/quiz_bg"
+        android:padding="2sp"
+        android:paddingStart="2sp"
+        android:paddingLeft="2sp"
+        android:paddingTop="2sp"
+        android:paddingEnd="2sp"
+        android:paddingRight="2sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.395">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="326sp"
+            android:layout_height="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.263"
+            app:srcCompat="@drawable/path_179" />
+
+
+        <RadioButton
+            android:id="@+id/notatall"
+            android:layout_width="142dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:buttonTint="#4AA4E5"
+            android:fontFamily="@font/mont"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/level1"
+            android:textColor="#4AA4E5"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/everyday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.194"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.004" />
+
+        <RadioButton
+            android:id="@+id/morethanhalf"
+            android:layout_width="181dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="88dp"
+            android:buttonTint="#4AA4E5"
+            android:fontFamily="@font/mont"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/level3"
+            android:textColor="#4AA4E5"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.233"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notatall" />
+
+        <RadioButton
+            android:id="@+id/everyday"
+            android:layout_width="188dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="220dp"
+            android:buttonTint="#4AA4E5"
+            android:fontFamily="@font/mont"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/level4"
+            android:textColor="#4AA4E5"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.237"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.55" />
+
+        <RadioButton
+            android:id="@+id/several"
+            android:layout_width="164dp"
+
+            android:layout_height="44dp"
+            android:layout_marginTop="68dp"
+            android:buttonTint="#4AA4E5"
+            android:fontFamily="@font/mont"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/level2"
+            android:textColor="#4AA4E5"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.211"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/notatall" />
+
+        <TextView
+            android:id="@+id/q"
+            android:layout_width="249dp"
+            android:layout_height="100dp"
+            android:fontFamily="@font/montsm"
+            android:text="@string/q_2"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.461"
+            tools:ignore="MissingConstraints" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="208dp"
+        android:layout_height="45dp"
+
+        android:background="@drawable/button_shape"
+
+        android:fontFamily="@font/montsm"
+        android:onClick="nextPage"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:backgroundTint="#4AA4E5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

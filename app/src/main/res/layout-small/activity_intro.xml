@@ -4,58 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/solid_blue"
-    tools:context=".describe">
+    tools:context=".intro"
+    android:background="@drawable/solid_blue">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="256dp"
-        android:layout_height="155dp"
+        android:layout_width="79dp"
+        android:layout_height="34dp"
         android:fontFamily="@font/pacifico_regular"
-        android:text="@string/app_name"
+        android:text="Sprout"
         android:textColor="#294D96"
-        android:textSize="80dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.073" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="245dp"
-        android:layout_height="246dp"
-        android:fontFamily="@font/mont"
-        android:text="@string/desc"
-        android:textAlignment="center"
-        android:textColor="#1F7AB0"
-        android:textSize="18sp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.254"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/front_page_picture"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/take_survey"
-        android:layout_width="322dp"
-        android:layout_height="76dp"
+        android:id="@+id/requestBtn"
+        android:layout_width="94dp"
+        android:layout_height="10dp"
         android:background="@drawable/button_shape"
-        android:onClick="onClickServey"
-        android:text="Take Survey"
+        android:onClick="onClickCont"
+        android:text="Continue"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="10dp"
         app:backgroundTint="#4AA4E5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.403"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
