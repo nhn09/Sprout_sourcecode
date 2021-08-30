@@ -32,6 +32,8 @@
     <string name="level2">Several days </string>
     <string name="level3">More than half of the days</string>
     <string name="level4">Nearly Everyday</string>
+    <string name="take_survey">Take Survey</string>
+    <string name="next">Next</string>
 
 
 </resources>

@@ -9,36 +9,38 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="213dp"
-        android:layout_height="54dp"
+        android:layout_width="349dp"
+        android:layout_height="74dp"
         android:layout_marginTop="136dp"
         android:fontFamily="@font/montsm"
         android:text="@string/sign_up_in_one_easy_step"
         android:textColor="#009688"
-        android:textSize="18sp"
+        android:textSize="30sp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:autofillHints="Email"
         android:id="@+id/signUpMail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_width="323dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="92dp"
         android:ems="10"
         android:fontFamily="@font/mont"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/signUpPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="326dp"
+        android:layout_height="58dp"
         android:ems="10"
         android:fontFamily="@font/mont"
         android:hint="@string/create_password"
@@ -52,20 +54,21 @@
 
     <Button
         android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="198dp"
+        android:layout_height="122dp"
         android:layout_marginTop="168dp"
         android:backgroundTint="#009688"
         android:fontFamily="@font/montsm"
         android:onClick="signUp"
         android:text="@string/sign_up"
         android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpMail"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.252" />
 
     <TextView
         android:id="@+id/GoToSignIn"
@@ -74,6 +77,7 @@
         android:background="#009688"
         android:fontFamily="@font/mont"
         android:onClick="GoToSignIn"
+        android:textSize="24sp"
         android:text="@string/already_have_an_account_sign_in"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
