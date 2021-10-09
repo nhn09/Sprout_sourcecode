@@ -34,6 +34,10 @@
     <string name="level4">Nearly Everyday</string>
     <string name="take_survey">Take Survey</string>
     <string name="next">Next</string>
+    <string name="question_1">1.How often do you feel hopeless ?</string>
+    <string name="question2">2.How would you rate your anger?</string>
+    <string name="question_3">3.How often do you lose appetite?</string>
+    <string name="question4">4.How often do you feel depress..?</string>
 
 
 </resources>
