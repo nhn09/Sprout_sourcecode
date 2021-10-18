@@ -28,6 +28,7 @@ public class newResearch extends AppCompatActivity {
     public String rId;
     public int rQuestionNumberData;
     public Map<String, Object> data = new HashMap<>();
+    public Map<String, Object> allIDstore = new HashMap<>();
 
 
     @Override
@@ -66,6 +67,28 @@ public class newResearch extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Error adding document" + e,Toast.LENGTH_SHORT).show();
                         }
                     });
+
+
+
+    }
+
+    public void addrid() {
+
+        allIDstore.put("researcher's ID",UserId);
+        DocumentReference mResearchDoc = FirebaseFirestore.getInstance().collection("allResearchIDs").document(rId);
+
+        mResearchDoc.set(allIDstore).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(getApplicationContext(),"mResearchDoc successfully updated!",Toast.LENGTH_SHORT).show();
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(),"Error adding mResearchDoc" + e,Toast.LENGTH_SHORT).show();
+                    }
+                });
 
 
 
@@ -110,7 +133,11 @@ public class newResearch extends AppCompatActivity {
         data.put("r_qnumber", rQuestionNumberData);
 
 
+
+
+
         addField();
+        addrid();
         Intent intent = new Intent( newResearch.this, setDetails.class);
         intent.putExtra("UserId",UserId);
         intent.putExtra("qstnNumber",rQuestionNumberData);

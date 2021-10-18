@@ -59,7 +59,7 @@
     <string name="options">Options</string>
     <string name="radio">Radio</string>
     <string name="option1">option1</string>
-
+    <string name="idCheckText">Please enter research code</string>
 
 
 </resources>

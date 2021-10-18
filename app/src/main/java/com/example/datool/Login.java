@@ -105,7 +105,7 @@ public class Login extends AppCompatActivity {
                     String userID = String.valueOf(mAuth.getCurrentUser().getUid());
 
 
-                    Intent intent = new Intent(Login.this,q_3.class);
+                    Intent intent = new Intent(Login.this,idCheck.class);
                     intent.putExtra("UserId",userID);
                     startActivity(intent);
                 }

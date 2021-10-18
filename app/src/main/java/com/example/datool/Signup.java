@@ -158,7 +158,7 @@ public class Signup extends AppCompatActivity {
 
                     String userID = String.valueOf(mAuth.getCurrentUser().getUid());
                     Toast.makeText(Signup.this, "Sign Up successful.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent (Signup.this,MainActivity.class);
+                    Intent intent = new Intent (Signup.this,idCheck.class);
                     intent.putExtra("UserId",userID);
                     placeholder(userID);
                     startActivity(intent);
