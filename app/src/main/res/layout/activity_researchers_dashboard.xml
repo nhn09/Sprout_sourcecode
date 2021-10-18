@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/researcher_bg"
     tools:context=".ResearchersDashboard">
 
     <Button
@@ -11,6 +12,7 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:onClick="Ongoing"
+        android:background="@drawable/button_shape"
         android:text="@string/ongoing_researches"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +27,7 @@
         android:layout_height="130dp"
         android:onClick="addNew"
         android:text="@string/add_new_research"
+        android:background="@drawable/button_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

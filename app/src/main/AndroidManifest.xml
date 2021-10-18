@@ -45,6 +45,10 @@
         <activity android:name=".Signup" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity" />
-    </application>
 
+
+    </application>
+    <uses-permission xmlns:tools="http://schemas.android.com/tools"
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
 </manifest>
