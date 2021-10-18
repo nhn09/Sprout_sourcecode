@@ -41,8 +41,7 @@ import java.util.Objects;
 public class csv_download extends AppCompatActivity {
 
 
-    //variables
-    //private String UserId;
+
     private static final String TAG = "csv_download";
     List<String[]> alldata = new ArrayList<String[]>();
 

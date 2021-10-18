@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/solid_blue"
-    tools:context=".Login">
+    tools:context=".ResearchersLoginPage">
+
+
 
     <EditText
         android:id="@+id/loginMail"
@@ -57,13 +58,15 @@
 
     <TextView
         android:id="@+id/GoToSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="236dp"
+        android:layout_height="44dp"
         android:fontFamily="@font/mont"
         android:onClick="GoToSignUp"
         android:text="Don't have an account? Sign up"
+        android:textAlignment="center"
         android:textColor="#009688"
         android:textColorHighlight="#65C87B"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

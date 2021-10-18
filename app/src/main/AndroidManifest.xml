@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.datool">
 
+<<<<<<< Updated upstream
+=======
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+>>>>>>> Stashed changes
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< Updated upstream
         <activity android:name=".Researcher_Enter_Questions"></activity>
         <activity android:name=".Research_Questions" />
         <activity android:name=".Current_Research_Options" />
@@ -19,27 +25,37 @@
         <activity android:name=".csv_download" />
         <activity android:name=".describe" />
         <activity android:name=".intro">
+=======
+        <activity android:name=".setDetails"> </activity>
+        <activity android:name=".newResearch" />
+        <activity android:name=".onGoingProjects" />
+        <activity android:name=".inflatepractice">
+
+        </activity>
+        <activity android:name=".OnGoing" />
+        <activity android:name=".ResearchersDashboard" />
+        <activity android:name=".ResearchersSignUpPage" />
+        <activity android:name=".ResearchersLoginPage" />
+        <activity android:name=".ChooseRole">
+
+
+>>>>>>> Stashed changes
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".csv_download" />
+        <activity android:name=".describe" />
+        <activity android:name=".intro" />
         <activity android:name=".q_6" />
         <activity android:name=".q_5" />
         <activity android:name=".q_4" />
         <activity android:name=".q_3" />
         <activity android:name=".App_Usage" />
-        <activity android:name=".checkboxQstn" />
-        <activity android:name=".Signup">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Signup" />
         <activity android:name=".Login" />
-        <activity android:name=".TheNextPage01" />
         <activity android:name=".MainActivity" />
     </application>
 
