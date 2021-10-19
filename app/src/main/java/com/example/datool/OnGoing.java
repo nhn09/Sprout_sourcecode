@@ -20,32 +20,12 @@ import javax.annotation.Nullable;
 
 public class OnGoing extends AppCompatActivity {
 
-    TextView name;
-    Button Research;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_going);
-
-     FirebaseAuth fAuth;
-    FirebaseFirestore fStore;
-     fAuth = FirebaseAuth.getInstance();
-     fStore=  FirebaseFirestore.getInstance();
-        String userID;
-     userID= fAuth.getCurrentUser().getUid();
-     DocumentReference documentReference= fStore.collection("users").document(userID);
-     documentReference.addSnapshotListener(OnGoing.this,new EventListener<DocumentSnapshot>() {
-         @Override
-         public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e)
-         {
-             name.setText(documentSnapshot.getString("Name"));
-         }
-
-     });
-
-
 
 
 
