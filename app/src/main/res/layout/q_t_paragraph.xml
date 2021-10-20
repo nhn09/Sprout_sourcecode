@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/solid_blue">
 
 
     <androidx.cardview.widget.CardView
@@ -45,6 +46,8 @@
                 android:layout_gravity="center_horizontal|top"
                 android:text="@string/app_name"
                 android:textSize="20sp"
+                android:textColor="#294D96"
+                android:fontFamily="@font/pacifico_regular"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +74,8 @@
                 android:id="@+id/submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="Submit"
+                android:background="@drawable/button_shape_2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

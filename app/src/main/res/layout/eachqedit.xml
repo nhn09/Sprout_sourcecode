@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/researcher_bg"
+    >
 
 
     <androidx.cardview.widget.CardView
@@ -20,7 +22,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,6 +47,7 @@
                 android:text="@string/question"
                 android:textAlignment="center"
                 android:textSize="18sp"
+                android:textColor="#4AA4E5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -70,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/options"
                 android:textSize="18sp"
+                android:textColor="#4AA4E5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.054"
@@ -131,6 +136,7 @@
                 android:layout_height="18dp"
                 android:layout_marginEnd="268dp"
                 android:text="@string/type"
+                android:textColor="#4AA4E5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -140,8 +146,9 @@
 
             <Button
                 android:id="@+id/submitDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="125dp"
+                android:layout_height="46dp"
+                android:background="@drawable/button_shape_3"
                 android:text="@string/submit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
