@@ -13,6 +13,7 @@
         android:layout_height="119dp"
         android:onClick="ResearcherRole"
         android:text="Researcher"
+        android:background="@drawable/button_shape_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -27,6 +28,7 @@
         android:layout_marginTop="52dp"
         android:onClick="surveyRole"
         android:text="participant"
+        android:background="@drawable/button_shape_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -38,11 +40,12 @@
         android:id="@+id/textChooseRole"
         android:layout_width="231dp"
         android:layout_height="60dp"
+        android:fontFamily="@font/pacifico_regular"
         android:text="Choose Your role"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="45dp" />
+        tools:layout_editor_absoluteY="60dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

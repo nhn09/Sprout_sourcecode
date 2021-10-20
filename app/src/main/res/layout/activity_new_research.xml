@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".newResearch">
+    tools:context=".newResearch"
+    android:background="@drawable/solid_blue">
 
     <TextView
         android:id="@+id/rCode"
@@ -17,10 +18,12 @@
 
     <TextView
         android:id="@+id/ResearchNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="119dp"
+        android:layout_height="20dp"
         android:layout_marginBottom="30dp"
+        android:background="@drawable/button_shape_2"
         android:text="@string/research_name"
+        android:textAlignment="center"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/DescribeText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,10 +32,12 @@
 
     <TextView
         android:id="@+id/DescribeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="83dp"
+        android:layout_height="19dp"
         android:layout_marginTop="276dp"
+        android:background="@drawable/button_shape_2"
         android:text="@string/description"
+        android:textAlignment="center"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,10 +48,12 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="157dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="256dp"
+        android:background="@drawable/button_shape_2"
         android:text="@string/number_of_questions"
+        android:textAlignment="center"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +62,9 @@
 
     <Button
         android:id="@+id/details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="54dp"
+        android:background="@drawable/button_shape_3"
         android:onClick="editDetails"
         android:text="@string/edit_details"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,8 +76,8 @@
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="44dp"
         android:text="@string/project_brief"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,6 +106,7 @@
 
     <EditText
         android:id="@+id/rName"
+
         android:layout_width="178dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
@@ -148,6 +157,7 @@
         android:layout_marginTop="144dp"
         android:onClick="genID"
         android:text="generate Research ID"
+        android:background="@drawable/button_shape_3"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.139"
